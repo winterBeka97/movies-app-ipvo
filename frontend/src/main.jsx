@@ -11,6 +11,8 @@ import {createBrowserRouter} from 'react-router-dom'
 //Auth
 
 //Restricted
+import Login from './pages/Auth/Login.jsx';
+import Register from './pages/Auth/Register.jsx';
 
 import Home from './pages/Home.jsx';
 
@@ -18,6 +20,8 @@ const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path='/' element={<App />}>
         <Route index={true} element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         </Route>
     )
 )
