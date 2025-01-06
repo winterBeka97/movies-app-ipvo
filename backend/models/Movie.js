@@ -47,7 +47,7 @@ const movieSchema = new mongoose.Schema ({
         type: String
     }],
     reviews: [reviewSchema],
-    numReviewes: {
+    numReviews: {
         type: Number,
         required: false,
         default: 0
