@@ -142,4 +142,23 @@ const getNewMovie = async(req, res) => {
     }
 };
 
-export { createMovie, getAllMovies, getSpecificMovie, updateMovie, movieReview, deleteMovie, deleteComment, getNewMovie };
+const getTopMovie = async(req, res) => {
+    try {
+        const topRatedMovies = await Movie.find().sort({numReviews: -1}).limit(10);
+        res.json(topRatedMovies);
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
+}
+
+const getRandomMovie = async(req, res) => {
+    try {
+        const randomMovie = await Movie.aggregate([{$sample: {size: 10}}]);
+        res.json(randomMovie);
+    } catch (error) {
+        res.status(500).json({error: error.message});
+
+    }
+}
+
+export { createMovie, getAllMovies, getSpecificMovie, updateMovie, movieReview, deleteMovie, deleteComment, getNewMovie, getTopMovie, getRandomMovie };
