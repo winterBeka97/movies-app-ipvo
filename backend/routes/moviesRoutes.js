@@ -8,13 +8,16 @@ import  {
     updateMovie, 
     movieReview, 
     deleteMovie,
-    deleteComment
+    deleteComment,
+    getNewMovie
  } from '../controllers/movieController.js';
 import { authenticate, authorizeAdmin } from "../middlewares/authMiddleware.js";
 import checkId from "../middlewares/checkId.js";
 
 router.get('/all-movies', getAllMovies);
 router.get('/specific-movie/:id', getSpecificMovie);
+router.get('/new-movie', getNewMovie);
+
 
 router.post('/:id/reviews', authenticate, checkId, movieReview)
 

@@ -133,5 +133,13 @@ const deleteComment = async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   };
+const getNewMovie = async(req, res) => {
+    try {
+        const newMovies = await Movie.find().sort({createdAt: -1}).limit(10);
+        res.json(newMovies);
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
+};
 
-export { createMovie, getAllMovies, getSpecificMovie, updateMovie, movieReview, deleteMovie, deleteComment };
+export { createMovie, getAllMovies, getSpecificMovie, updateMovie, movieReview, deleteMovie, deleteComment, getNewMovie };
