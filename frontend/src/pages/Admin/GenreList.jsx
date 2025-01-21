@@ -35,7 +35,7 @@ const GenreList = () => {
             if (result.error) {
                 toast.error(result.error);
             } else {
-                setName('');
+                setName("");
                 toast.success(`${result.name} genre is created`);
                 refetch();
             }

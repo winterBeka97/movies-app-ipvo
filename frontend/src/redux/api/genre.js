@@ -8,7 +8,7 @@ export const genreApiSlice = apiSlice.injectEndpoints({
             query: (newGenre) => ({
                 url: `${GENRE_URL}`,
                 method: "POST",
-                body, newGenre,
+                body: newGenre,
             }),
         }),
         updateGenre: builder.mutation({

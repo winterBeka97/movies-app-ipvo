@@ -2,7 +2,7 @@ const GenreForm = ({value, setValue, handleSubmit, buttonText = 'Submit', handle
     return <div className="p-3">
         <form onSubmit={handleSubmit} className="space-y-3">
             <input 
-                type="Text"
+                type="text"
                 className="py-3 px-4 border rounded-lg w-[60rem]"
                 placeholder="Write genre name"
                 value={value}
