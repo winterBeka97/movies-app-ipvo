@@ -5,8 +5,6 @@ import Loader from '../../component/Loader';
 import { setCredentials } from '../../redux/features/auth/authSlice';
 import { toast } from 'react-toastify';
 import { useRegisterMutation } from '../../redux/api/users';
-import { use } from 'react';
-
  
 const Register = () => {
    const [username, setUsername] = useState('');

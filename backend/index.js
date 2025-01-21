@@ -29,4 +29,4 @@ app.use('/api/v1/upload', uploadRoutes);
 const _dirname = path.resolve();
 app.use('/uploads', express.static(path.join(_dirname + '/uploads')));
 
-app.listen(PORT, () => console.log('Server is running on port ${PORT}'));
+app.listen(PORT, () => console.log('Server is running on port',PORT));
