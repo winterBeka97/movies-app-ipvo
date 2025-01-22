@@ -13,6 +13,7 @@ import AdminRoute from './pages/Admin/AdminRoute.jsx';
 import GenreList from './pages/Admin/GenreList.jsx';
 import CreateMovie from './pages/Admin/CreateMovie.jsx';
 import AdminMoviesList from "./pages/Admin/AdminMoviesList.jsx";
+import UpdateMovie from "./pages/Admin/UpdateMovie.jsx";
 
 //Restricted
 import Login from './pages/Auth/Login.jsx';
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
             <Route path='/admin/movies/genres' element={<GenreList />} />
             <Route path='/admin/movies/create' element={<CreateMovie />} />
             <Route path='/admin/movies-list' element={<AdminMoviesList />} />
+            <Route path='/admin/movies/update/:id' element={<UpdateMovie />} />
         </Route>
 
         </Route>
