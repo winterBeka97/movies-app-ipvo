@@ -24,7 +24,7 @@ const CreateMovie = () => {
     useEffect(() => {
         if (genres) {
             setMovieData((prevData) => ({
-                ...prevData, genre: genres[0]?.id || "",
+                ...prevData, genre: genres[0]?._id || "",
             }));
         }
     }, [genres]);
@@ -136,7 +136,7 @@ const CreateMovie = () => {
                     Genre:
                     <select name="genre" value={movieData.genre} onChange={handleChange} className="border px-2 py-1 w-full">
                         {isLoadingGenres ? (<option>Loading genres...</option>) : (genres.map((genre) => (
-                            <option key={genre.id} value={genre.id}>
+                            <option key={genre._id} value={genre._id}>
                                 {genre.name}
                             </option>
                         )) )}
