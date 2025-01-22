@@ -14,6 +14,7 @@ import GenreList from './pages/Admin/GenreList.jsx';
 import CreateMovie from './pages/Admin/CreateMovie.jsx';
 import AdminMoviesList from "./pages/Admin/AdminMoviesList.jsx";
 import UpdateMovie from "./pages/Admin/UpdateMovie.jsx";
+import AllMovies from './pages/Movies/AllMovies.jsx';
 
 //Restricted
 import Login from './pages/Auth/Login.jsx';
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path='/' element={<App />}>
         <Route index={true} element={<Home />} />
+        <Route path='/movies/' element={<AllMovies />}/>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='' element={<AdminRoute />}>

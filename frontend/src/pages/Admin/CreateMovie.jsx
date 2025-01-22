@@ -24,8 +24,10 @@ const CreateMovie = () => {
     useEffect(() => {
         if (genres) {
             setMovieData((prevData) => ({
-                ...prevData, genre: genres[0]?._id || "",
+                ...prevData, 
+                genre: genres[0]?._id || "",
             }));
+            console.log(genres[0]?._id);
         }
     }, [genres]);
 
@@ -36,7 +38,7 @@ const CreateMovie = () => {
             const selectedGenre = genres.find((genre) => genre.name === value);
             setMovieData((prevData) => ({
                 ...prevData, 
-                genre: selectedGenre ? selectedGenre._id : ""
+                genre: selectedGenre ? selectedGenre._id : "",
             }));
         } else {
             setMovieData((prevData) => ({
@@ -136,7 +138,7 @@ const CreateMovie = () => {
                     Genre:
                     <select name="genre" value={movieData.genre} onChange={handleChange} className="border px-2 py-1 w-full">
                         {isLoadingGenres ? (<option>Loading genres...</option>) : (genres.map((genre) => (
-                            <option key={genre._id} value={genre._id}>
+                            <option key={genre.id} value={genre.id}>
                                 {genre.name}
                             </option>
                         )) )}
