@@ -22,7 +22,7 @@ export const moviesApiSlice =  apiSlice.injectEndpoints({
                 body: updatedMovie,
             }),
         }),
-        updateMovieReview: builder.mutation({
+        addMovieReview: builder.mutation({
             query: ({id, rating, comment}) => ({
                 url: `${MOVIE_URL}/${id}/reviews`,
                 method: "POST",
@@ -64,7 +64,7 @@ export const moviesApiSlice =  apiSlice.injectEndpoints({
     }),
 });
 
-export const { useGetAllMoviesQuery, useCreateMovieMutation, useUpdateMovieMutation, useUpdateMovieReviewMutation,
+export const { useGetAllMoviesQuery, useCreateMovieMutation, useUpdateMovieMutation, useAddMovieReviewMutation,
     useDeleteCommentMutation, useDeleteMovieMutation, useGetNewMovieQuery, useGetRandomMovieQuery, 
     useGetSpecificMovieQuery, useGetTopMovieQuery, useUploadImageMutation,
 } = moviesApiSlice;
