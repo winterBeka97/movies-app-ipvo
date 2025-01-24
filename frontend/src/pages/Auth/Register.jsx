@@ -27,7 +27,7 @@ const Register = () => {
        if(userInfo){
            navigate(redirect);
        }
-   }, [userInfo, navigate, redirect]);
+   }, [navigate, redirect, userInfo]);
 
    const submitHandler = async (e) => {
     e.preventDefault();
@@ -36,10 +36,10 @@ const Register = () => {
     } 
     else{
         try{
-            const res = await register({username, email, password}).unwrap()
-            dispatch(setCredentials({...res}))
-            navigate(redirect)
-            toast.success("User registered successfully")
+            const res = await register({username, email, password}).unwrap();
+            dispatch(setCredentials({...res}));
+            navigate(redirect);
+            toast.success("User registered successfully");
         } catch (err){
             console.log(err);
             toast.error(err.data.message);
@@ -96,7 +96,7 @@ const Register = () => {
     </div>
     <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       alt="cinema-photo" className="h-[59rem] w-[55%] xl:block md:hidden sm hidden rounded-lg"/>
-   </div>)
+   </div>);
 };
 
 export default Register
