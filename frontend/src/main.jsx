@@ -20,8 +20,10 @@ import MovieDetails from './pages/Movies/MovieDetails.jsx'
 //Restricted
 import Login from './pages/Auth/Login.jsx';
 import Register from './pages/Auth/Register.jsx';
+import PrivateRoute from './pages/Auth/PrivateRoute.jsx';
 
 import Home from './pages/Home.jsx';
+import Profile from './pages/User/Profile.jsx';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -32,17 +34,19 @@ const router = createBrowserRouter(
             <Route path='/register' element={<Register />} />
             <Route path='/movies/:id' element={<MovieDetails />} />
 
-        <Route path='' element={<AdminRoute />}>
-            <Route path='/admin/movies/genres' element={<GenreList />} />
-            <Route path='/admin/movies/create' element={<CreateMovie />} />
-            <Route path='/admin/movies-list' element={<AdminMoviesList />} />
-            <Route path='/admin/movies/update/:id' element={<UpdateMovie />} />
-
-        </Route>
-
+            <Route path="" element={<PrivateRoute />}>
+                <Route path="/profile" element={<Profile />} />
+            </Route>
+            
+            <Route path='' element={<AdminRoute />}>
+                <Route path='/admin/movies/genres' element={<GenreList />} />
+                <Route path='/admin/movies/create' element={<CreateMovie />} />
+                <Route path='/admin/movies-list' element={<AdminMoviesList />} />
+                <Route path='/admin/movies/update/:id' element={<UpdateMovie />} />
+            </Route>
         </Route>
     )
-)
+);
 
 createRoot(document.getElementById('root')).render(
     <Provider store={store}>
