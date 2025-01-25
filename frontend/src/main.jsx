@@ -14,8 +14,10 @@ import GenreList from './pages/Admin/GenreList.jsx';
 import CreateMovie from './pages/Admin/CreateMovie.jsx';
 import AdminMoviesList from "./pages/Admin/AdminMoviesList.jsx";
 import UpdateMovie from "./pages/Admin/UpdateMovie.jsx";
+import AllComments from './pages/Admin/AllComments.jsx';
 import AllMovies from './pages/Movies/AllMovies.jsx';
-import MovieDetails from './pages/Movies/MovieDetails.jsx'
+import MovieDetails from './pages/Movies/MovieDetails.jsx';
+
 
 //Restricted
 import Login from './pages/Auth/Login.jsx';
@@ -43,6 +45,7 @@ const router = createBrowserRouter(
                 <Route path='/admin/movies/create' element={<CreateMovie />} />
                 <Route path='/admin/movies-list' element={<AdminMoviesList />} />
                 <Route path='/admin/movies/update/:id' element={<UpdateMovie />} />
+                <Route path='/admin/movies/comments' element={<AllComments />} />
             </Route>
         </Route>
     )
