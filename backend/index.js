@@ -5,16 +5,15 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";
 
-import connectDB from "./config/db.js"; // Adjust the path as needed
+import connectDB from "./config/db.js"; 
 import userRoutes from "./routes/userRoutes.js";
 import genreRoutes from "./routes/genreRoutes.js";
 import moviesRoutes from "./routes/moviesRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 
-dotenv.config(); // Load environment variables
+dotenv.config(); 
 
 if (cluster.isPrimary) {
-    // Master process forks workers for each CPU core
     const numCPUs = os.cpus().length;
     console.log(`Master process ${process.pid} is running`);
     console.log(`Forking ${numCPUs} workers...`);
@@ -23,15 +22,12 @@ if (cluster.isPrimary) {
         cluster.fork();
     }
 
-    // Log when workers exit
     cluster.on("exit", (worker) => {
         console.log(`Worker ${worker.process.pid} exited. Starting a new worker...`);
         cluster.fork();
     });
-} else {
-    // Worker processes handle incoming requests
-    connectDB(); // Connect to MongoDB
-
+} else {s
+    connectDB(); 
     const app = express();
 
     app.use(express.json());
