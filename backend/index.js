@@ -26,7 +26,7 @@ if (cluster.isPrimary) {
         console.log(`Worker ${worker.process.pid} exited. Starting a new worker...`);
         cluster.fork();
     });
-} else {s
+} else {
     connectDB(); 
     const app = express();
 
