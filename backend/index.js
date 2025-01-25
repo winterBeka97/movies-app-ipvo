@@ -13,7 +13,7 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 
 dotenv.config(); // Load environment variables
 
-if (cluster.isMaster) {
+if (cluster.isPrimary) {
     // Master process forks workers for each CPU core
     const numCPUs = os.cpus().length;
     console.log(`Master process ${process.pid} is running`);
