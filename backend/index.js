@@ -1,32 +1,53 @@
+import cluster from "cluster";
+import os from "os";
 import express from "express";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";
 
-import connectDB from './config/db.js';
-import userRoutes from './routes/userRoutes.js';
-import genreRoutes from './routes/genreRoutes.js';
-import moviesRoutes from './routes/moviesRoutes.js';
-import uploadRoutes from './routes/uploadRoutes.js';
+import connectDB from "./config/db.js"; 
+import userRoutes from "./routes/userRoutes.js";
+import genreRoutes from "./routes/genreRoutes.js";
+import moviesRoutes from "./routes/moviesRoutes.js";
+import uploadRoutes from "./routes/uploadRoutes.js";
 
-dotenv.config();
-connectDB();
+dotenv.config(); 
 
-const app = express();
+if (cluster.isPrimary) {
+    const numCPUs = os.cpus().length;
+    console.log(`Master process ${process.pid} is running`);
+    console.log(`Forking ${numCPUs} workers...`);
 
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(cookieParser());
+    for (let i = 0; i < numCPUs; i++) {
+        cluster.fork();
+    }
 
-const PORT = process.env.PORT || 3000;
+    cluster.on("exit", (worker) => {
+        console.log(`Worker ${worker.process.pid} exited. Starting a new worker...`);
+        cluster.fork();
+    });
+} else {s
+    connectDB(); 
+    const app = express();
 
-//Routes
-app.use('/api/v1/users', userRoutes);
-app.use('/api/v1/genre', genreRoutes);
-app.use('/api/v1/movies', moviesRoutes);
-app.use('/api/v1/upload', uploadRoutes);
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
+    app.use(cookieParser());
 
-const _dirname = path.resolve();
-app.use('/uploads', express.static(path.join(_dirname + '/uploads')));
+    const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => console.log('Server is running on port',PORT));
+    // Routes
+    app.use("/api/v1/users", userRoutes);
+    app.use("/api/v1/genre", genreRoutes);
+    app.use("/api/v1/movies", moviesRoutes);
+    app.use("/api/v1/upload", uploadRoutes);
+
+    // Static file handling
+    const __dirname = path.resolve();
+    app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+    // Start server on assigned port
+    app.listen(PORT, () => {
+        console.log(`Worker ${process.pid} is running on port ${PORT}`);
+    });
+}
