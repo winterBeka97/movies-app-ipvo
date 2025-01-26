@@ -11,6 +11,7 @@ export const genreApiSlice = apiSlice.injectEndpoints({
                 body: newGenre,
             }),
         }),
+        
         updateGenre: builder.mutation({
             query: ({id, updateGenre}) => ({
                 url: `${GENRE_URL}/${id}`,
@@ -18,12 +19,14 @@ export const genreApiSlice = apiSlice.injectEndpoints({
                 body: updateGenre,
             }),
         }),
+
         removeGenre: builder.mutation({
             query: (id) => ({
                 url: `${GENRE_URL}/${id}`,
                 method: "DELETE",
             }),
         }),
+
         listGenresGenres: builder.query({
             query: () => `${GENRE_URL}/genres`,
         }),

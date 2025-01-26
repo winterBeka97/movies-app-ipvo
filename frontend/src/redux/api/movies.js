@@ -7,11 +7,12 @@ export const moviesApiSlice =  apiSlice.injectEndpoints({
         getAllMovies: builder.query({
             query: () => `${MOVIE_URL}/all-movies`,
         }),
+
         createMovie: builder.mutation({
             query: (newMovie) => ({
                 url: `${MOVIE_URL}/create-movie`,
                 method: "POST",
-                body: newMovie
+                body: newMovie,
             }),
         }),
 
@@ -22,6 +23,7 @@ export const moviesApiSlice =  apiSlice.injectEndpoints({
                 body: updatedMovie,
             }),
         }),
+
         addMovieReview: builder.mutation({
             query: ({id, rating, comment}) => ({
                 url: `${MOVIE_URL}/${id}/reviews`,
@@ -29,6 +31,7 @@ export const moviesApiSlice =  apiSlice.injectEndpoints({
                 body: { rating, id, comment},
             }),
         }),
+
         deleteComment: builder.mutation({
             query: ({movieId, reviewId}) => ({
                 url: `${MOVIE_URL}/delete-comment`,
@@ -36,28 +39,34 @@ export const moviesApiSlice =  apiSlice.injectEndpoints({
                 body: {movieId, reviewId},
             }),
         }),
+
         deleteMovie: builder.mutation({
             query: (id) => ({
                 url: `${MOVIE_URL}/delete-movie/${id}`,
                 method: "DELETE",
             }),
         }),
+
         getSpecificMovie: builder.query({
             query: (id) => `${MOVIE_URL}/specific-movie/${id}`,
         }),
+
         uploadImage: builder.mutation({
             query: (formData) => ({
-                url: `${UPLOAD_URL}`,
-                method: "POST",
-                body: formData,
+              url: `${UPLOAD_URL}`,
+              method: "POST",
+              body: formData,
             }),
-        }),
+          }),
+
         getNewMovie: builder.query({
             query: () => `${MOVIE_URL}/new-movie`,
         }),
+
         getTopMovie: builder.query({
             query: () => `${MOVIE_URL}/top-movie`,
         }),
+        
         getRandomMovie: builder.query({
             query: () => `${MOVIE_URL}/random-movie`,
         }),

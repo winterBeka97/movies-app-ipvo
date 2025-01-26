@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCreateMovieMutation, useUploadImageMutation} from '../../redux/api/movies.js';
-import { useListGenresGenresQuery} from '../../redux/api/genre.js';
+import { useCreateMovieMutation, useUploadImageMutation } from '../../redux/api/movies.js';
+import { useListGenresGenresQuery } from '../../redux/api/genre.js';
 import { toast } from "react-toastify";
 
 const CreateMovie = () => {
@@ -36,6 +36,7 @@ const CreateMovie = () => {
 
         if (name === "genre") {
             const selectedGenre = genres.find((genre) => genre.name === value);
+            
             setMovieData((prevData) => ({
                 ...prevData, 
                 genre: selectedGenre ? selectedGenre._id : "",
@@ -44,7 +45,7 @@ const CreateMovie = () => {
             setMovieData((prevData) => ({
                 ...prevData,
                 [name]: value,
-            }))
+            }));
         }
     };
 
@@ -70,6 +71,7 @@ const CreateMovie = () => {
             if (selectedImage) {
                 const formData = new FormData();
                 formData.append("image", selectedImage)
+                console.log(formData);
                 const uploadImageResponse = await uploadImage(formData);
 
                 if (uploadImageResponse.data) {
@@ -152,8 +154,9 @@ const CreateMovie = () => {
                         borderRadius: "0",
                         padding: "0"
                     }}>
-                        {!selectedImage && "uploadImage"}
-                        <input type="file" accept="image/*" onChange={handleImageChange} style={{display: !selectedImage ? "none" : "block"}} />
+                        {!selectedImage && "Upload Image"}
+                        <input type="file" accept="image/*" onChange={handleImageChange} style={{display: !selectedImage ? "none" : "block"}} 
+                    />
                 </label>
             </div>
             <button type="button" onClick={handleCreateMovie} className="bg-teal-500 text-white px-4 py-2 rounded"
