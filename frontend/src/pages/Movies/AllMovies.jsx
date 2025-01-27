@@ -118,7 +118,7 @@ const AllMovies = () => {
                             onChange={(e) => handleYearChange(e.target.value)}
                             >
                                 <option value="">Year</option>
-                                {uniqueYears.map((year) => (
+                                {uniqueYears.sort((a, b) => b - a).map((year) => (
                                     <option key={year} value={year}>{year}</option>
                                 ))}
                             </select>
