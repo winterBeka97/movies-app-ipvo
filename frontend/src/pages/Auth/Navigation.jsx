@@ -35,22 +35,22 @@ const Navigation = () => {
   <div className="fixed bottom-10 left-[32rem] transform translate-x/2 translate-y-1/2 z-50 bg-[#0f0f0f] border w-[30%] px-[7rem] mb-[2rem] rounded">
     <section className="flex items-centers">
       {/* Section 1 */}
-      <div className="flex justify-center items-center mb-[2rem]">
+      <div className="flex justify-center items-center">
           <Link
             to="/"
             className="flex items-center transition-transform transform hover:translate-x-2"
           >
-            <AiOutlineHome className="mr-2 mt-[3rem] text-white" size={26} />
+            <AiOutlineHome className="mr-2 mt-[1rem] mb-[0.5rem] text-white" size={26} />
             <span className="hidden nav-item-name mt-[3rem]">Home</span>
           </Link>
 
           <Link to='/movies' className="flex items-center transition-transform transform hover:translate-x-2 ml-[1rem]">
-            <MdOutlineLocalMovies className="mr-2 mt-[3rem] text-white" size={26} />
+            <MdOutlineLocalMovies className="mr-2 mt-[1rem] mb-[0.5rem] text-white" size={26} />
           </Link>
       </div>
       {/* Section 2 */}
       <div className="relative">
-        <button onClick={toggleDropdown} className="pt-[2.5rem] pl-[5rem] text-gray-800 focus:outline-none">
+        <button onClick={toggleDropdown} className="text-gray-800 focus:outline-none">
           {userInfo ? (
            <span className="text-white">{userInfo.username}</span>  
           ):(
@@ -106,14 +106,14 @@ const Navigation = () => {
             {!userInfo && ( 
               <ul className="flex">
                 <li>
-                <Link to='/login' className="flex items-center mt-8 transition-transform transform hover:translate-x-2 mb-[2rem]">
-                  <AiOutlineLogin className="ml-5 mr-2 mt-[4px] text-white" size={30} />
+                <Link to='/login' className="flex items-center transition-transform transform hover:translate-x-2 mb-[1rem]">
+                  <AiOutlineLogin className="ml-5 mr-2S text-white" size={24} />
                   <span className="hidden nav-item-name">LOGIN</span>
                 </Link>
                 </li>
                 <li>
-                  <Link to='/register' className="flex items-center mt-8 transition-transform transform hover:translate-x-2 ml-[2rem]">
-                    <AiOutlineUserAdd className="ml-[-1rem] mr-5 mt-[4px] text-white" size={30} />
+                  <Link to='/register' className="flex items-center transition-transform transform hover:translate-x-2 ml-[2rem]">
+                    <AiOutlineUserAdd className="ml-[-1rem] mr-5 text-white" size={25} />
                     <span className="hidden nav-item-name">REGISTER</span>
                   </Link>
                 </li>
