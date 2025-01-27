@@ -26,7 +26,7 @@ const MoviesContainerPage = () => {
 
     return (
     <div className="flex flex-col lg:flex-row lg:justify-between items-center">
-        <nav className="ml-[4rem] flex flex-row xl:flex-col lg:flex-col md:flex-row sm:flex-row">
+        <nav className="ml-[2rem] mr-[3rem] flex flex-row xl:flex-col lg:flex-col md:flex-row sm:flex-row">
             {genres?.map((g) => (
                 <button 
                     key={g._id} 

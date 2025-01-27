@@ -107,7 +107,8 @@ const CreateMovie = () => {
         }
     };
 
-    return <div className="container flex justify-center items-center mt-4">
+    return <div className="grid h-screen place-items-center"> 
+    <div className="container flex justify-center items-center mt-4">
         <form>
             <p className="text-green-200 w-[50rem] text-2xl mb-4">Create Movie</p>
             <div className="mb-4">
@@ -164,6 +165,7 @@ const CreateMovie = () => {
                 {isCreatingMovie || isUploadingImage ? "Creating..." : "Create Movie"}
             </button>
         </form>
+    </div>
     </div>;
 };
 

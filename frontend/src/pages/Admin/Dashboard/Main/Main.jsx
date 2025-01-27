@@ -17,7 +17,7 @@ const Main = () => {
     return (
     <div>
         <section className="flex justify-around">
-            <div className="ml-[14rem] mt-10">
+            <div className="ml-[19rem] mr-[2rem] mt-10">
                 <div className="-translate-x-4 flex">
                     <SecondaryCard 
                         pill="Users"

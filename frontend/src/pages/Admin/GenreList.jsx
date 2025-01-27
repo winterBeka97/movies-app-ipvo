@@ -92,7 +92,8 @@ const GenreList = () => {
             toast.error("Genre deletion has failed. Try again.");
         }
     };
-    return <div className="ml-[10rem] flex flex-col md:flex-row">
+    return <div className="grid h-screen place-items-center"> 
+    <div className="flex flex-col md:flex-row">
         <div className="md:w-3/4 p-3">
             <h1 className="h-12">Manage Genres</h1>
             <GenreForm value={name} setValue={setName} handleSubmit={handleCreateGenre} />
@@ -126,6 +127,7 @@ const GenreList = () => {
                 />
             </Modal>
         </div>
+    </div>
     </div>;
 };
 

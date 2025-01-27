@@ -32,24 +32,25 @@ const Navigation = () => {
   }
 
   return (
-  <div className="fixed bottom-20 left-[30rem] transform translate-x-1/2 translate-y-1/2 z-50 bg-[#0f0f0f] border w-[30%] px-[4rem] mb-[2rem] rounded">
-    <section className="flex justify-between items-center mb-[0.25rem] mt-[-2rem] ml-[0.05rem] mr-[em]">
+  <div className="fixed bottom-10 left-[32rem] transform translate-x/2 translate-y-1/2 z-50 bg-[#0f0f0f] border w-[30%] px-[7rem] mb-[2rem] rounded">
+    <section className="flex items-centers">
       {/* Section 1 */}
+      <div className="flex justify-center items-center mb-[2rem]">
           <Link
             to="/"
             className="flex items-center transition-transform transform hover:translate-x-2"
           >
-            <AiOutlineHome className="mr-2 mt-[2rem] text-white" size={30} />
+            <AiOutlineHome className="mr-2 mt-[3rem] text-white" size={26} />
             <span className="hidden nav-item-name mt-[3rem]">Home</span>
           </Link>
 
-          <Link to='/movies' className="flex items-center transition-transform transform hover:translate-x-2 ml-[0.125rem]">
-            <MdOutlineLocalMovies className="mr-2 mt-[2rem] text-white" size={30} />
-            <span className="hidden nav-item-name mt-[2rem]">SHOP</span>
+          <Link to='/movies' className="flex items-center transition-transform transform hover:translate-x-2 ml-[1rem]">
+            <MdOutlineLocalMovies className="mr-2 mt-[3rem] text-white" size={26} />
           </Link>
+      </div>
       {/* Section 2 */}
       <div className="relative">
-        <button onClick={toggleDropdown} className="text-gray-800 focus:outline-none">
+        <button onClick={toggleDropdown} className="pt-[2.5rem] pl-[5rem] text-gray-800 focus:outline-none">
           {userInfo ? (
            <span className="text-white">{userInfo.username}</span>  
           ):(
