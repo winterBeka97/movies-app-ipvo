@@ -33,7 +33,7 @@ const Navigation = () => {
 
   return (
   <div className="fixed bottom-10 left-[32rem] transform translate-x/2 translate-y-1/2 z-50 bg-[#0f0f0f] border w-[30%] px-[7rem] mb-[2rem] rounded">
-    <section className="flex items-centers">
+    <section className="flex items-centers pl-[1.45rem] justify-between">
       {/* Section 1 */}
       <div className="flex justify-center items-center">
           <Link

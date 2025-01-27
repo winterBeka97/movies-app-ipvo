@@ -95,7 +95,7 @@ const Register = () => {
     </div>
     </div>
     <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      alt="cinema-photo" className="h-[59rem] w-[55%] xl:block md:hidden sm hidden rounded-lg"/>
+      alt="cinema-photo" className="h-[42rem] w-[45.5%] xl:block md:hidden sm hidden rounded-lg"/>
    </div>);
 };
 
